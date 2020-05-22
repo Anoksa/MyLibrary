@@ -1,0 +1,25 @@
+﻿<Application x:Class="MyLibrary.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:MyLibrary"
+             xmlns:d="clr-namespace:MyLibrary.View"
+             xmlns:l="clr-namespace:MyLibrary.ViewModel"
+             xmlns:r="clr-namespace:MyLibrary.Model"             
+             StartupUri="Autorization.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <l:MainViewModel x:Key="MainViewModel"/>
+            <l:AddNewViewModel x:Key="AddNewViewModel"/>
+            <l:BooksViewModel x:Key="BooksViewModel"/>
+            <l:FilmsViewModel x:Key="FilmsViewModel"/>
+            <l:SerialsViewModel x:Key="SerialsViewModel"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.LightBlue.xaml" />
+                <!--<ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />-->
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
