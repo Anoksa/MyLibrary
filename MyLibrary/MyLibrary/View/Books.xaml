@@ -11,7 +11,7 @@
 
 
     <Grid>
-        <ListView x:Name="BookList" ItemsSource="{Binding Books, Mode=OneWay}" SelectedItem="{Binding SelectedBook, Mode=OneWayToSource}" HorizontalAlignment="Left" Width="581" Height="570" VerticalAlignment="Top">
+        <ListView x:Name="BookList" ItemsSource="{Binding Books, Mode=OneWay}" SelectedItem="{Binding SelectedBook, Mode=OneWayToSource}" HorizontalAlignment="Left" Width="594" Height="570" VerticalAlignment="Top">
             <ListView.View>
                 <GridView>
                     <GridViewColumn  Header="Название" DisplayMemberBinding="{Binding Title}"/>
@@ -108,7 +108,21 @@
             Удалить
         </Button>
 
-        <TextBlock  Text="{Binding GetDescription, Mode=OneWay}" HorizontalAlignment="Left" Margin="776,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="338" Width="295"/>
-
+        <TextBlock  Text="{Binding GetDescription, Mode=OneWay}" HorizontalAlignment="Left" Margin="776,96,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="351" Width="295"/>
+        <TextBox  HorizontalAlignment="Left" Height="32" Margin="745,22,0,0"  VerticalAlignment="Top" Width="215" AutomationProperties.HelpText="Введите параметр поиска...">
+            <TextBox.Text>
+                <Binding  Path="SearchB" UpdateSourceTrigger="PropertyChanged"   ValidatesOnDataErrors="True">
+                    <Binding.ValidationRules >
+                        <ExceptionValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Button Command="{Binding SearchCommand}"
+    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+    Width="100"
+    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Margin="983,22,29,526">
+            Поиск
+        </Button>
     </Grid>
 </Page>

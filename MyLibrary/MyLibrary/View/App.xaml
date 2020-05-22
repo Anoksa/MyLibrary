@@ -14,7 +14,7 @@
             <l:FilmsViewModel x:Key="FilmsViewModel"/>
             <l:SerialsViewModel x:Key="SerialsViewModel"/>
             <l:MangaViewModel x:Key="MangaViewModel"/>
-            
+
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />

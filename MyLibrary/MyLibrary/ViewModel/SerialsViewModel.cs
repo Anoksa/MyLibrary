@@ -415,5 +415,57 @@ namespace MyLibrary.ViewModel
                 return "";
             }
         }
+
+        private string search_txt;
+
+        public string SearchB
+        {
+            get => search_txt;
+            set
+            {
+                search_txt = value;
+                OnPropertyChanged("SearchB");
+            }
+        }
+
+        public ICommand SearchCommand => new RelayCommand(obj => Search());
+
+        private void Search()
+        {
+            Serials.Clear();
+            string sqlExpression = "SELECT Serials_id, Title,  Genre, Year, Description, Status FROM Serials Where Title like '" + SearchB + "%'  or Description like '%" + SearchB + "%' or Status like '" + SearchB + "%'";
+
+            if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
+            {
+                DataBase.SqlConnection.Open();
+            }
+
+            if (DataBase.SqlConnection.State == System.Data.ConnectionState.Open)
+            {
+                SqlCommand command = new SqlCommand(sqlExpression, DataBase.SqlConnection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows) // если есть данные 
+                {
+                    while (reader.Read()) // построчно считываем данные 
+                    {
+                        object film_id = reader["Serial_id"];
+                        object title = reader["Title"];
+                        object genre = reader["Genre"];
+                        object year = reader["Year"];
+                        object description = reader["Description"];
+                        object status = reader["Status"];
+
+
+
+                        Serials.Add(new Serial(Convert.ToInt32(film_id.ToString()), title.ToString(),
+                             genre.ToString(), Convert.ToInt32(year.ToString()), description.ToString(), status.ToString()));
+
+                    }
+                }
+                reader.Close();
+            }
+            DataBase.SqlConnection.Close();
+        }
     }
 }

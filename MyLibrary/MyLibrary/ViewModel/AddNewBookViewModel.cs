@@ -113,7 +113,7 @@ namespace MyLibrary.ViewModel
                         }
                         else
                         {
-                            status = "непрочитано";
+                            status = "Непрочитано";
                             command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre0 + "', " + Year + ", '" + Description + "', '" + status + "')";
                         }
                     }
@@ -127,7 +127,7 @@ namespace MyLibrary.ViewModel
                         }
                         else
                         {
-                            status = "непрочитано";
+                            status = "Непрочитано";
                             command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre1 + "', " + Year + ", '" + Description + "', '" + status + "')";
                         }
                     }
@@ -141,7 +141,7 @@ namespace MyLibrary.ViewModel
                         }
                         else
                         {
-                            status = "непрочитано";
+                            status = "Непрочитано";
                             command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre2 + "', " + Year + ", '" + Description + "', '" + status + "')";
                         }
                     }
@@ -155,7 +155,7 @@ namespace MyLibrary.ViewModel
                         }
                         else
                         {
-                            status = "непрочитано";
+                            status = "Непрочитано";
                             command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre3 + "', " + Year + ", '" + Description + "', '" + status + "')";
                         }
                     }
@@ -169,7 +169,7 @@ namespace MyLibrary.ViewModel
                         }
                         else
                         {
-                            status = "непрочитано";
+                            status = "Непрочитано";
                             command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre4 + "', " + Year + ", '" + Description + "', '" + status + "')";
                         }
                     }
@@ -183,7 +183,7 @@ namespace MyLibrary.ViewModel
                         }
                         else
                         {
-                            status = "непрочитано";
+                            status = "Непрочитано";
                             command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre5 + "', " + Year + ", '" + Description + "', '" + status + "')";
                         }
                     }
@@ -197,7 +197,7 @@ namespace MyLibrary.ViewModel
                         }
                         else
                         {
-                            status = "непрочитано";
+                            status = "Непрочитано";
                             command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre6 + "', " + Year + ", '" + Description + "', '" + status + "')";
                         }
                     }
@@ -207,11 +207,12 @@ namespace MyLibrary.ViewModel
                     DataBase.SqlConnection.Open();
                     command.Connection = DataBase.SqlConnection;
                     int number = command.ExecuteNonQuery();
-                    MessageBox.Show(number.ToString() + " книга добавлена.");
+                    MessageBox.Show("Книга добавлена.");
                     DataBase.SqlConnection.Close();
                     Title = "";
                     Description = "";
                     Author = "";
+                    Year = 0;
                     
                 }
                 catch(Exception ex)

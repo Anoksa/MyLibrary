@@ -33,8 +33,8 @@
             <TextBlock Text="Вход" />
         </Button>
 
-        <PasswordBox PasswordChanged="password_PasswordChanged" Grid.Column="1" HorizontalAlignment="Left" Margin="24.667,90.667,0,0" Grid.Row="1" VerticalAlignment="Top" Width="153" Height="27"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="24.667,50.667,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="153">
+        <PasswordBox PasswordChanged="password_PasswordChanged" Grid.Column="1" HorizontalAlignment="Left" Margin="24.333,87.667,0,0" Grid.Row="1" VerticalAlignment="Top" Width="153" Height="30"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="24.333,43.667,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="153">
             <Binding Path="Login" UpdateSourceTrigger="PropertyChanged"  ValidatesOnDataErrors="True">
                 <Binding.ValidationRules >
                     <ExceptionValidationRule />

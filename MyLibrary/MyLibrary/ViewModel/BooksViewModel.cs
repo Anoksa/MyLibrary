@@ -427,6 +427,57 @@ namespace MyLibrary.ViewModel
             }
         }
 
-        
+        private string search_txt;
+
+        public string SearchB
+        {
+            get => search_txt;
+            set
+            {
+                search_txt = value;
+                OnPropertyChanged("SearchB");
+            }
+        }
+
+        public ICommand SearchCommand => new RelayCommand(obj => Search());
+
+        private void Search()
+        {
+            Books.Clear();
+            string sqlExpression = "SELECT Book_id, Title, Author, Genre, Year, Description, Status FROM Books Where Title like '"+SearchB + "%' or Author like '" + SearchB +"%' or Description like '"+ SearchB +"%' or Status like '"+SearchB+"%'";
+
+            if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
+            {
+                DataBase.SqlConnection.Open();
+            }
+
+            if (DataBase.SqlConnection.State == System.Data.ConnectionState.Open)
+            {
+                SqlCommand command = new SqlCommand(sqlExpression, DataBase.SqlConnection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows) // если есть данные 
+                {
+                    while (reader.Read()) // построчно считываем данные 
+                    {
+                        object book_id = reader["Book_id"];
+                        object title = reader["Title"];
+                        object author = reader["Author"];
+                        object genre = reader["Genre"];
+                        object year = reader["Year"];
+                        object description = reader["Description"];
+                        object status = reader["Status"];
+
+
+
+                        Books.Add(new Book(Convert.ToInt32(book_id.ToString()), title.ToString(), author.ToString(),
+                            genre.ToString(), Convert.ToInt32(year.ToString()), description.ToString(), status.ToString()));
+
+                    }
+                }
+                reader.Close();
+            }
+            DataBase.SqlConnection.Close();
+        }
     }
 }

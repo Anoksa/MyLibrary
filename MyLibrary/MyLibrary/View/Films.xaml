@@ -110,6 +110,17 @@
         </Button>
 
         <TextBlock  Text="{Binding GetDescription, Mode=OneWay}" HorizontalAlignment="Left" Margin="785,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="368" Width="286"/>
+        <TextBox  HorizontalAlignment="Left" Height="32" Margin="745,22,0,0"  VerticalAlignment="Top" Width="215" AutomationProperties.HelpText="Введите параметр поиска...">
+            <Binding  Path="SearchB" UpdateSourceTrigger="PropertyChanged"   ValidatesOnDataErrors="True">
+                <Binding.ValidationRules >
+                    <ExceptionValidationRule />
+                </Binding.ValidationRules>
+            </Binding>
+        </TextBox>
+        <Button Command="{Binding SearchCommand}"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Width="100"
+            ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Margin="983,22,29,526" Content="Поиск"/>
 
     </Grid>
 </Page>

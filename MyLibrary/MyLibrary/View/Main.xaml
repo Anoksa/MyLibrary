@@ -105,30 +105,30 @@
                             </StackPanel>
                         </Button>
                     </ListViewItem>
-                    
+
                     <ListViewItem Height="45" Padding="0">
-                        <Button Background="{x:Null}" BorderBrush="{x:Null}" Width="246" Height="45">
+                        <Button Command="{Binding RandomCommand}" Background="{x:Null}" BorderBrush="{x:Null}" Width="246" Height="45">
                             <StackPanel Orientation="Horizontal" Width="226">
                                 <materialDesign:PackIcon Kind="Heart" Width="20" Height="20" Foreground="#FFD41515" Margin="5" VerticalAlignment="Center"/>
-                                <TextBlock Text="Recommend" Margin="10"/>
+                                <TextBlock Text="Случайная книга" Margin="10"/>
                             </StackPanel>
                         </Button>
                     </ListViewItem>
 
-                    <ListViewItem Height="45" Padding="0">
+                    <!--<ListViewItem Height="45" Padding="0">
                         <Button Background="{x:Null}" BorderBrush="{x:Null}" Width="246" Height="45">
                             <StackPanel Orientation="Horizontal" Width="222">
                                 <materialDesign:PackIcon Kind="Settings" Width="20" Height="20" Foreground="#FF0069C1" Margin="5" VerticalAlignment="Center"/>
                                 <TextBlock Text="Settings" Margin="10"/>
                             </StackPanel>
                         </Button>
-                    </ListViewItem>
+                    </ListViewItem>-->
                     <ListViewItem Height="45" Padding="0">
                         <Button x:Name="LogOut" Background="{x:Null}" BorderBrush="{x:Null}" Width="246" Height="45" Click="Exit">
-                        <StackPanel Orientation="Horizontal" Width="226">
-                            <materialDesign:PackIcon Kind="ExitToApp" Width="20" Height="20" Foreground="#FF0069C1" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Выход" Margin="10" Width="131" Height="24"/>
-                        </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="226">
+                                <materialDesign:PackIcon Kind="ExitToApp" Width="20" Height="20" Foreground="#FF0069C1" Margin="5" VerticalAlignment="Center"/>
+                                <TextBlock Text="Выход" Margin="10" Width="131" Height="24"/>
+                            </StackPanel>
                         </Button>
                     </ListViewItem>
 
@@ -144,23 +144,17 @@
             <materialDesign:PackIcon Kind="CloseOutline" Width="24" Height="23" Foreground="#FF0069C1" VerticalAlignment="Center" HorizontalAlignment="Left"/>
         </Button>
 
-        <Button Command="{Binding BooksCommand}" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Height="Auto" materialDesign:ButtonAssist.CornerRadius="25 25 0 0"   Margin="424,8,481,565">
+        <Button Command="{Binding BooksCommand}" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Height="Auto" materialDesign:ButtonAssist.CornerRadius="25 25 0 0"   Margin="580,8,325,565">
             <TextBlock Text="Книги" />
         </Button>
-        <Button Command="{Binding FilmsCommand}" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Height="Auto" materialDesign:ButtonAssist.CornerRadius="25 25 0 0"    Margin="524,8,376,565">
+        <Button Command="{Binding FilmsCommand}" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Height="Auto" materialDesign:ButtonAssist.CornerRadius="25 25 0 0"    Margin="680,8,220,565">
             <TextBlock Text="Фильмы" />
         </Button>
-        <Button Command="{Binding SerialsCommand}"  Style="{StaticResource MaterialDesignRaisedAccentButton}"  Height="Auto" materialDesign:ButtonAssist.CornerRadius="25 25 0 0"    Margin="629,8,271,565">
+        <Button Command="{Binding SerialsCommand}"  Style="{StaticResource MaterialDesignRaisedAccentButton}"  Height="Auto" materialDesign:ButtonAssist.CornerRadius="25 25 0 0"    Margin="785,8,115,565">
             <TextBlock Text="Сериалы" />
         </Button>
-        <Button Command="{Binding MangaCommand}" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Height="Auto" materialDesign:ButtonAssist.CornerRadius="25 25 0 0"    Margin="734,8,182,565">
+        <Button Command="{Binding MangaCommand}" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Height="Auto" materialDesign:ButtonAssist.CornerRadius="25 25 0 0"    Margin="890,8,26,565">
             <TextBlock Text="Манга" />
-        </Button>
-        <Button  Style="{StaticResource MaterialDesignRaisedAccentButton}"  Height="Auto" materialDesign:ButtonAssist.CornerRadius="25 25 0 0"    Margin="850,8,27,565">
-            <StackPanel Orientation="Horizontal" Width="107">
-            <materialDesign:PackIcon Kind="Magnify" Width="25" Height="25"  VerticalAlignment="Center"/>
-                <TextBlock Text="Поиск" VerticalAlignment="Center" Margin="20 10" Width="40" />
-            </StackPanel>
         </Button>
 
     </Grid>

@@ -43,3 +43,5 @@ C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05
 C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\AddSerialPage.baml
 C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\AddMangaPage.g.cs
 C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\AddMangaPage.baml
+C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\UseInfoPage.g.cs
+C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\UseInfoPage.baml

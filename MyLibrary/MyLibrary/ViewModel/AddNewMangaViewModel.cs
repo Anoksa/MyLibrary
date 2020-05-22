@@ -200,8 +200,10 @@ namespace MyLibrary.ViewModel
                     int number = command.ExecuteNonQuery();
                     MessageBox.Show( "Манга добавлена.");
                     DataBase.SqlConnection.Close();
-                    
-                    
+                    Title = "";
+                    Description = "";
+                    Year = 0;
+
                 }
                 catch (Exception ex)
                 {

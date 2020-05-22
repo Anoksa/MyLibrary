@@ -198,10 +198,11 @@ namespace MyLibrary.ViewModel
                     DataBase.SqlConnection.Open();
                     command.Connection = DataBase.SqlConnection;
                     int number = command.ExecuteNonQuery();
-
-
-                    MessageBox.Show(number.ToString() + " сериал добавлен.");
+                    MessageBox.Show("Cериал добавлен.");
                     DataBase.SqlConnection.Close();
+                    Title = "";
+                    Description = "";
+                    Year = 0;
                 }
                 catch (Exception ex)
                 {
