@@ -29,11 +29,9 @@ C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05
 C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\AddNew.baml
 C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\Books.g.cs
 C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\Films.g.cs
-C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\Games.g.cs
 C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\Manga.g.cs
 C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\Books.baml
 C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\Films.baml
-C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\Games.baml
 C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\Manga.baml
 C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\AddBookPage.g.cs
 C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\AddBookPage.baml
@@ -43,3 +41,5 @@ C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05
 C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\Serials.baml
 C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\AddSerialPage.g.cs
 C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\AddSerialPage.baml
+C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\AddMangaPage.g.cs
+C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\AddMangaPage.baml

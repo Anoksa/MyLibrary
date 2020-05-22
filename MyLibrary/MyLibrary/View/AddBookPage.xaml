@@ -10,8 +10,8 @@
       Title="AddBookPage" Background="White">
 
     <Grid>
-        <Button Command="{Binding AddCommand}" Content="Сохранить" HorizontalAlignment="Left" Margin="314,386,0,0" VerticalAlignment="Top" Width="106" />
-        <TextBox x:Name="book_name" HorizontalAlignment="Left" Height="23" Margin="235,36,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="160">
+        <Button Command="{Binding AddCommand}" Content="Сохранить" HorizontalAlignment="Left" Margin="314,386,0,0" VerticalAlignment="Top" Width="106"   />
+        <TextBox x:Name="title" HorizontalAlignment="Left" Height="23" Margin="235,36,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="160">
             <TextBox.Text>
                 <Binding Path="Title" UpdateSourceTrigger="PropertyChanged"  ValidatesOnDataErrors="True">
                     <Binding.ValidationRules >
@@ -29,7 +29,7 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <TextBox x:Name="year" HorizontalAlignment="Left" Height="23" Margin="235,112,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="97">
+        <TextBox x:Name="year" HorizontalAlignment="Left" Height="23" Margin="235,112,0,0"   VerticalAlignment="Top" Width="97">
             <TextBox.Text>
                 <Binding Path="Year" UpdateSourceTrigger="PropertyChanged"  ValidatesOnDataErrors="True">
                     <Binding.ValidationRules >
@@ -48,7 +48,7 @@
             </TextBox.Text>
         </TextBox>
         <Label Content="Название книги:" HorizontalAlignment="Left" Margin="88,35,0,0" VerticalAlignment="Top"/>
-        <Label Content="Год издания:" HorizontalAlignment="Left" Margin="88,118,0,0" VerticalAlignment="Top"/>
+        <Label Content="Год добавления:" HorizontalAlignment="Left" Margin="88,118,0,0" VerticalAlignment="Top"/>
         <Label Content="Автор:" HorizontalAlignment="Left" Margin="88,76,0,0" VerticalAlignment="Top"/>
         <Label Content="Описание:" HorizontalAlignment="Left" Margin="88,212,0,0" VerticalAlignment="Top"/>
         <Label Content="Статус книги:" HorizontalAlignment="Left" Margin="441,95,0,0" VerticalAlignment="Top"/>
@@ -62,7 +62,7 @@
             <ComboBoxItem>Драма</ComboBoxItem>
             <ComboBoxItem>Роман</ComboBoxItem>
         </ComboBox>
-        <CheckBox  IsChecked="{Binding Path=Status}" Content="Прочитано" HorizontalAlignment="Left" Margin="441,127,0,0" VerticalAlignment="Top"/>
+        <CheckBox  IsChecked="{Binding Path=Status}" Content="Прочитано" HorizontalAlignment="Left" Margin="441,127,0,0" VerticalAlignment="Top" x:Name="ch"/>
 
     </Grid>
 </Page>

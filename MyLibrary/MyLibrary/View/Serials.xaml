@@ -12,7 +12,7 @@
       DataContext="{StaticResource SerialsViewModel}">
 
     <Grid>
-        <ListView x:Name="BookList" ItemsSource="{Binding Serials, Mode=OneWay}" SelectedItem="{Binding SelectedSerial, Mode=OneWayToSource}" HorizontalAlignment="Left" Width="581" Height="570" VerticalAlignment="Top">
+        <ListView  ItemsSource="{Binding Serials, Mode=OneWay}" SelectedItem="{Binding SelectedSerial, Mode=OneWayToSource}" HorizontalAlignment="Left" Width="581" Height="570" VerticalAlignment="Top">
             <ListView.View>
                 <GridView>
                     <GridViewColumn  Header="Название" DisplayMemberBinding="{Binding Title}"/>
@@ -28,7 +28,7 @@
 
 
             <Button Command="{Binding AllCommand}" Width="50" Height="30" Style="{StaticResource MaterialDesignRaisedDarkButton}"   materialDesign:ButtonAssist.CornerRadius="25" >
-                <materialDesign:PackIcon Kind="Movie"/>
+                <materialDesign:PackIcon Kind="MovieRoll"/>
                 <Button.ToolTip>
                     <ToolTip>Все книги</ToolTip>
                 </Button.ToolTip>
@@ -109,7 +109,7 @@
             Удалить
         </Button>
 
-        <TextBlock  Text="{Binding GetDescription, Mode=OneWay}" HorizontalAlignment="Left" Margin="824,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="267" Width="247"/>
+        <TextBlock  Text="{Binding GetDescription, Mode=OneWay}" HorizontalAlignment="Left" Margin="802,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="352" Width="269"/>
 
     </Grid>
 </Page>

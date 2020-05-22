@@ -70,9 +70,11 @@
     <Compile Include="Model\Serial.cs" />
     <Compile Include="ViewModel\AddNewBookViewModel.cs" />
     <Compile Include="ViewModel\AddNewFilmViewModel.cs" />
+    <Compile Include="ViewModel\AddNewMangaViewModel.cs" />
     <Compile Include="ViewModel\AddNewSerialViewModel.cs" />
     <Compile Include="ViewModel\AddNewViewModel.cs" />
     <Compile Include="ViewModel\BooksViewModel.cs" />
+    <Compile Include="ViewModel\MangaViewModel.cs" />
     <Compile Include="ViewModel\SerialsViewModel.cs" />
     <Compile Include="ViewModel\FilmsViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
@@ -84,6 +86,9 @@
     </Compile>
     <Compile Include="View\AddFilmPage.xaml.cs">
       <DependentUpon>AddFilmPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddMangaPage.xaml.cs">
+      <DependentUpon>AddMangaPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AddNew.xaml.cs">
       <DependentUpon>AddNew.xaml</DependentUpon>
@@ -99,9 +104,6 @@
     </Compile>
     <Compile Include="View\Films.xaml.cs">
       <DependentUpon>Films.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Games.xaml.cs">
-      <DependentUpon>Games.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
@@ -120,6 +122,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\AddMangaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AddNew.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -134,7 +140,7 @@
     </Page>
     <Compile Include="Model\Book.cs" />
     <Compile Include="Model\Film.cs" />
-    <Compile Include="Model\Manga.cs" />
+    <Compile Include="Model\MangaM.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\App.xaml.cs">
@@ -154,10 +160,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Films.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Games.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

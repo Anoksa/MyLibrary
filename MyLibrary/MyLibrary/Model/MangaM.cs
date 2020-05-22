@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyLibrary.Model
 {
-    public class Manga
+    public class MangaM
     {
         public int ID { get; set; }
         public string Title { get; set; }
@@ -14,11 +14,11 @@ namespace MyLibrary.Model
         public string Genre { get; set; }
         public int Year { get; set; }
         public string Description { get; set; }
-        public bool Status { get; set; }
+        public string Status { get; set; }
 
 
-        public Manga() { }
-        public Manga(int id, string title, string genre, int year, string description, bool status)
+        public MangaM() { }
+        public MangaM(int id, string title, string genre, int year, string description, string status)
         {
             this.ID = id;
             this.Title = title;

@@ -33,5 +33,7 @@ namespace MyLibrary.View
         {
             Application.Current.Shutdown();
         }
+
+       
     }
 }

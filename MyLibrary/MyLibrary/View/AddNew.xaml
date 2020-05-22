@@ -15,11 +15,11 @@
         DataContext="{StaticResource AddNewViewModel}">
     <Grid>
         <Frame NavigationUIVisibility="Hidden" Content="{Binding Path=CurrentPage}" Margin="0,102,0,-0.333"/>
-        <Button Command="{Binding AddBooksCommand}" Content="Книгу" HorizontalAlignment="Left" Margin="44,50,0,0" VerticalAlignment="Top" Width="76"/>
-        <Button Command="{Binding AddFilmsCommand}" Content="Фильм" HorizontalAlignment="Left" Margin="155,50,0,0" VerticalAlignment="Top" Width="76"/>
-        <Button Command="{Binding AddSerialsCommand}" Content="Сериал" HorizontalAlignment="Left" Margin="272,50,0,0" VerticalAlignment="Top" Width="76"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="386,50,0,0" VerticalAlignment="Top" Width="76"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="518,50,0,0" VerticalAlignment="Top" Width="76"/>
+        <Button Command="{Binding AddBooksCommand}" Content="Книгу" HorizontalAlignment="Left" Margin="111,50,0,0" VerticalAlignment="Top" Width="76"/>
+        <Button Command="{Binding AddFilmsCommand}" Content="Фильм" HorizontalAlignment="Left" Margin="222,50,0,0" VerticalAlignment="Top" Width="76"/>
+        <Button Command="{Binding AddSerialsCommand}" Content="Сериал" HorizontalAlignment="Left" Margin="339,50,0,0" VerticalAlignment="Top" Width="76"/>
+        <Button Command="{Binding AddMangaCommand}" Content="Манга" HorizontalAlignment="Left" Margin="453,50,0,0" VerticalAlignment="Top" Width="76"/>
+
 
         <Button  HorizontalAlignment="Left" Margin="566,10,0,0" VerticalAlignment="Top" Width="55" Click="Close" Height="26">
             <materialDesign:PackIcon Kind="CloseOutline" Width="24" Height="23" Foreground="#FF0069C1" VerticalAlignment="Center" HorizontalAlignment="Left"/>

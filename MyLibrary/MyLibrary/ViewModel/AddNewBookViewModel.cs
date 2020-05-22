@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using MyLibrary.Model;
 using MyLibrary.View;
+using System.Text.RegularExpressions;
 
 
 namespace MyLibrary.ViewModel
@@ -86,132 +87,182 @@ namespace MyLibrary.ViewModel
 
         private void AddBook()
         {
-            try
-            {
-                SqlCommand command = new SqlCommand();
-                DataBase.SqlConnection.Close();
-                string genre0 = "Детектив";
-                string genre1 = "Романтика";
-                string genre2 = "Фантастика";
-                string genre3 = "Фэнтези";
-                string genre4 = "Приключения";
-                string genre5 = "Драма";
-                string genre6 = "Роман";
-                string status;
-
-
-                #region Выбор переменных
-                if (Genre == 0)
+            if (CheckField()) { 
+                try
                 {
-                    if (Status)
-                    {
-                        status = "Прочитано";
-                        command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre0 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                    SqlCommand command = new SqlCommand();
+                    DataBase.SqlConnection.Close();
+                    string genre0 = "Детектив";
+                    string genre1 = "Романтика";
+                    string genre2 = "Фантастика";
+                    string genre3 = "Фэнтези";
+                    string genre4 = "Приключения";
+                    string genre5 = "Драма";
+                    string genre6 = "Роман";
+                    string status;
 
-                    }
-                    else
+
+                    #region Выбор переменных
+                    if (Genre == 0)
                     {
-                        status = "непрочитано";
-                        command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre0 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                        if (Status)
+                        {
+                            status = "Прочитано";
+                            command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre0 + "', " + Year + ", '" + Description + "', '" + status + "')";
+
+                        }
+                        else
+                        {
+                            status = "непрочитано";
+                            command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre0 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                        }
                     }
+                    else if(Genre == 1)
+                    {
+                        if (Status)
+                        {
+                            status = "Прочитано";
+                            command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre1 + "', " + Year + ", '" + Description + "', '" + status + "')";
+
+                        }
+                        else
+                        {
+                            status = "непрочитано";
+                            command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre1 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                        }
+                    }
+                    else if (Genre == 2)
+                    {
+                        if (Status)
+                        {
+                            status = "Прочитано";
+                            command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre2 + "', " + Year + ", '" + Description + "', '" + status + "')";
+
+                        }
+                        else
+                        {
+                            status = "непрочитано";
+                            command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre2 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                        }
+                    }
+                    else if (Genre == 3)
+                    {
+                        if (Status)
+                        {
+                            status = "Прочитано";
+                            command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre3 + "', " + Year + ", '" + Description + "', '" + status + "')";
+
+                        }
+                        else
+                        {
+                            status = "непрочитано";
+                            command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre3 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                        }
+                    }
+                    else if (Genre == 4)
+                    {
+                        if (Status)
+                        {
+                            status = "Прочитано";
+                            command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre4 + "', " + Year + ", '" + Description + "', '" + status + "')";
+
+                        }
+                        else
+                        {
+                            status = "непрочитано";
+                            command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre4 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                        }
+                    }
+                    else if (Genre == 5)
+                    {
+                        if (Status)
+                        {
+                            status = "Прочитано";
+                            command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre5 + "', " + Year + ", '" + Description + "', '" + status + "')";
+
+                        }
+                        else
+                        {
+                            status = "непрочитано";
+                            command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre5 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                        }
+                    }
+                    else if (Genre == 6)
+                    {
+                        if (Status)
+                        {
+                            status = "Прочитано";
+                            command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre6 + "', " + Year + ", '" + Description + "', '" + status + "')";
+
+                        }
+                        else
+                        {
+                            status = "непрочитано";
+                            command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre6 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                        }
+                    }
+                    #endregion
+
+
+                    DataBase.SqlConnection.Open();
+                    command.Connection = DataBase.SqlConnection;
+                    int number = command.ExecuteNonQuery();
+                    MessageBox.Show(number.ToString() + " книга добавлена.");
+                    DataBase.SqlConnection.Close();
+                    Title = "";
+                    Description = "";
+                    Author = "";
+                    
                 }
-                else if(Genre == 1)
+                catch(Exception ex)
                 {
-                    if (Status)
-                    {
-                        status = "Прочитано";
-                        command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre1 + "', " + Year + ", '" + Description + "', '" + status + "')";
-
-                    }
-                    else
-                    {
-                        status = "непрочитано";
-                        command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre1 + "', " + Year + ", '" + Description + "', '" + status + "')";
-                    }
+                    MessageBox.Show(ex.ToString());
                 }
-                else if (Genre == 2)
-                {
-                    if (Status)
-                    {
-                        status = "Прочитано";
-                        command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre2 + "', " + Year + ", '" + Description + "', '" + status + "')";
-
-                    }
-                    else
-                    {
-                        status = "непрочитано";
-                        command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre2 + "', " + Year + ", '" + Description + "', '" + status + "')";
-                    }
-                }
-                else if (Genre == 3)
-                {
-                    if (Status)
-                    {
-                        status = "Прочитано";
-                        command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre3 + "', " + Year + ", '" + Description + "', '" + status + "')";
-
-                    }
-                    else
-                    {
-                        status = "непрочитано";
-                        command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre3 + "', " + Year + ", '" + Description + "', '" + status + "')";
-                    }
-                }
-                else if (Genre == 4)
-                {
-                    if (Status)
-                    {
-                        status = "Прочитано";
-                        command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre4 + "', " + Year + ", '" + Description + "', '" + status + "')";
-
-                    }
-                    else
-                    {
-                        status = "непрочитано";
-                        command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre4 + "', " + Year + ", '" + Description + "', '" + status + "')";
-                    }
-                }
-                else if (Genre == 5)
-                {
-                    if (Status)
-                    {
-                        status = "Прочитано";
-                        command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre5 + "', " + Year + ", '" + Description + "', '" + status + "')";
-
-                    }
-                    else
-                    {
-                        status = "непрочитано";
-                        command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre5 + "', " + Year + ", '" + Description + "', '" + status + "')";
-                    }
-                }
-                else if (Genre == 6)
-                {
-                    if (Status)
-                    {
-                        status = "Прочитано";
-                        command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre6 + "', " + Year + ", '" + Description + "', '" + status + "')";
-
-                    }
-                    else
-                    {
-                        status = "непрочитано";
-                        command.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "','" + Author + "', '" + genre6 + "', " + Year + ", '" + Description + "', '" + status + "')";
-                    }
-                }
-                #endregion
-
-
-                DataBase.SqlConnection.Open();
-                command.Connection = DataBase.SqlConnection;
-                int number = command.ExecuteNonQuery();
-                MessageBox.Show(number.ToString() + " книга добавлена.");
-                DataBase.SqlConnection.Close();
             }
-            catch(Exception ex)
+        }
+
+        private bool CheckField()
+        {
+            
+            Regex rTitle = new Regex(@"[А-Яа-я]");
+            Regex rAuthor = new Regex(@"[А-Яа-я]");
+            Regex rYear = new Regex(@"\d{4}");
+            Regex rDescription = new Regex(@"[А-Яа-я]");
+            
+            if (Title == null || Title.Length > 50)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Проверьте название");
+                return false;
             }
+            if(Author == null || Author.Length > 50)
+            {
+                MessageBox.Show("Проверьте поле Автор");
+            }
+
+
+                if (!rTitle.IsMatch(Title) )
+                {
+                    MessageBox.Show("Название должно быть на русском\n");
+                    return false;
+                }
+                if(!rAuthor.IsMatch(Author)|| Author.Length > 50 || Author.Length <0)
+                {
+                    MessageBox.Show("Проверьте поле Автор\n");
+                    return false;
+                }
+                if (!rYear.IsMatch(Year.ToString()))
+                {
+                    MessageBox.Show("Неверно введён год\n");
+                    return false;
+                }
+                if (!rDescription.IsMatch(Description))
+                {
+                    MessageBox.Show("Описание должно быть на русском языке");
+                    return false;
+                }
+           
+            return true;
+
         }
     }
 }

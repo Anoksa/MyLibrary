@@ -31,6 +31,8 @@ namespace MyLibrary.ViewModel
 
         public ICommand SerialsCommand => new RelayCommand(obj => OpenSerialsPage());
 
+        public ICommand MangaCommand => new RelayCommand(obj => OpenMangaPage());
+
         private void OpenBooksPage()
         {
             CurrentPage = new Books();
@@ -46,6 +48,11 @@ namespace MyLibrary.ViewModel
         private void OpenSerialsPage()
         {
             CurrentPage = new Serials();
+        }
+
+        private void OpenMangaPage()
+        {
+            CurrentPage = new Manga();
         }
     }
 }

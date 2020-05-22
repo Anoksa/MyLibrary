@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MyLibrary.ViewModel;
 
 namespace MyLibrary.View
 {
@@ -23,6 +24,8 @@ namespace MyLibrary.View
         public Manga()
         {
             InitializeComponent();
+            var manga = new MangaViewModel();
+            DataContext = manga;
         }
     }
 }

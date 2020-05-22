@@ -108,7 +108,7 @@
             Удалить
         </Button>
 
-        <TextBlock  Text="{Binding GetDescription, Mode=OneWay}" HorizontalAlignment="Left" Margin="824,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="267" Width="247"/>
+        <TextBlock  Text="{Binding GetDescription, Mode=OneWay}" HorizontalAlignment="Left" Margin="776,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="338" Width="295"/>
 
     </Grid>
 </Page>

@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using MyLibrary.Model;
 using MyLibrary.View;
+using System.Text.RegularExpressions;
+
 namespace MyLibrary.ViewModel
 {
     class AddNewFilmViewModel : ViewModelBase
@@ -75,134 +77,169 @@ namespace MyLibrary.ViewModel
 
         private void AddFilm()
         {
-            try
+            if (CheckField())
             {
-                SqlCommand command = new SqlCommand();
-                DataBase.SqlConnection.Close();
-                string genre0 = "Детектив";
-                string genre1 = "Мелодрама";
-                string genre2 = "Фантастика";
-                string genre3 = "Фэнтези";
-                string genre4 = "Приключения";
-                string genre5 = "Комедия";
-                string genre6 = "Ужасы";
-                string status;
-
-
-                #region Выбор переменных
-                if (Genre == 0)
+                try
                 {
-                    if (Status)
-                    {
-                        status = "Проcмотрено";
-                        command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre0 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                    SqlCommand command = new SqlCommand();
+                    DataBase.SqlConnection.Close();
+                    string genre0 = "Детектив";
+                    string genre1 = "Мелодрама";
+                    string genre2 = "Фантастика";
+                    string genre3 = "Фэнтези";
+                    string genre4 = "Приключения";
+                    string genre5 = "Комедия";
+                    string genre6 = "Ужасы";
+                    string status;
 
-                    }
-                    else
+
+                    #region Выбор переменных
+                    if (Genre == 0)
                     {
-                        status = "Непросмотрено";
-                        command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre0 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                        if (Status)
+                        {
+                            status = "Проcмотрено";
+                            command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre0 + "', " + Year + ", '" + Description + "', '" + status + "')";
+
+                        }
+                        else
+                        {
+                            status = "Непросмотрено";
+                            command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre0 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                        }
                     }
+                    else if (Genre == 1)
+                    {
+                        if (Status)
+                        {
+                            status = "Просмотрено";
+                            command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre1 + "', " + Year + ", '" + Description + "', '" + status + "')";
+
+                        }
+                        else
+                        {
+                            status = "Непросмотрено";
+                            command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre1 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                        }
+                    }
+                    else if (Genre == 2)
+                    {
+                        if (Status)
+                        {
+                            status = "Просмотрено";
+                            command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre2 + "', " + Year + ", '" + Description + "', '" + status + "')";
+
+                        }
+                        else
+                        {
+                            status = "Непросмотрено";
+                            command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre2 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                        }
+                    }
+                    else if (Genre == 3)
+                    {
+                        if (Status)
+                        {
+                            status = "Просмотрено";
+                            command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre3 + "', " + Year + ", '" + Description + "', '" + status + "')";
+
+                        }
+                        else
+                        {
+                            status = "Непросмотрено";
+                            command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre3 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                        }
+                    }
+                    else if (Genre == 4)
+                    {
+                        if (Status)
+                        {
+                            status = "Просмотрено";
+                            command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre4 + "', " + Year + ", '" + Description + "', '" + status + "')";
+
+                        }
+                        else
+                        {
+                            status = "Непросмотрено";
+                            command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre4 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                        }
+                    }
+                    else if (Genre == 5)
+                    {
+                        if (Status)
+                        {
+                            status = "Просмотрено";
+                            command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre5 + "', " + Year + ", '" + Description + "', '" + status + "')";
+
+                        }
+                        else
+                        {
+                            status = "Непросмотрено";
+                            command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre5 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                        }
+                    }
+                    else if (Genre == 6)
+                    {
+                        if (Status)
+                        {
+                            status = "Просмотрено";
+                            command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre6 + "', " + Year + ", '" + Description + "', '" + status + "')";
+
+                        }
+                        else
+                        {
+                            status = "Непросмотрено";
+                            command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre6 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                        }
+                    }
+                    #endregion
+
+
+                    DataBase.SqlConnection.Open();
+                    command.Connection = DataBase.SqlConnection;
+                    int number = command.ExecuteNonQuery();
+                    MessageBox.Show(number.ToString() + " фильм добавлен.");
+                    DataBase.SqlConnection.Close();
+                    var films = new AddNew();
+                    films.Close();
                 }
-                else if (Genre == 1)
+                catch (Exception ex)
                 {
-                    if (Status)
-                    {
-                        status = "Просмотрено";
-                        command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre1 + "', " + Year + ", '" + Description + "', '" + status + "')";
-
-                    }
-                    else
-                    {
-                        status = "Непросмотрено";
-                        command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre1 + "', " + Year + ", '" + Description + "', '" + status + "')";
-                    }
+                    MessageBox.Show(ex.ToString());
                 }
-                else if (Genre == 2)
-                {
-                    if (Status)
-                    {
-                        status = "Просмотрено";
-                        command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre2 + "', " + Year + ", '" + Description + "', '" + status + "')";
-
-                    }
-                    else
-                    {
-                        status = "Непросмотрено";
-                        command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre2 + "', " + Year + ", '" + Description + "', '" + status + "')";
-                    }
-                }
-                else if (Genre == 3)
-                {
-                    if (Status)
-                    {
-                        status = "Просмотрено";
-                        command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre3 + "', " + Year + ", '" + Description + "', '" + status + "')";
-
-                    }
-                    else
-                    {
-                        status = "Непросмотрено";
-                        command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre3 + "', " + Year + ", '" + Description + "', '" + status + "')";
-                    }
-                }
-                else if (Genre == 4)
-                {
-                    if (Status)
-                    {
-                        status = "Просмотрено";
-                        command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre4 + "', " + Year + ", '" + Description + "', '" + status + "')";
-
-                    }
-                    else
-                    {
-                        status = "Непросмотрено";
-                        command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre4 + "', " + Year + ", '" + Description + "', '" + status + "')";
-                    }
-                }
-                else if (Genre == 5)
-                {
-                    if (Status)
-                    {
-                        status = "Просмотрено";
-                        command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre5 + "', " + Year + ", '" + Description + "', '" + status + "')";
-
-                    }
-                    else
-                    {
-                        status = "Непросмотрено";
-                        command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre5 + "', " + Year + ", '" + Description + "', '" + status + "')";
-                    }
-                }
-                else if (Genre == 6)
-                {
-                    if (Status)
-                    {
-                        status = "Просмотрено";
-                        command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre6 + "', " + Year + ", '" + Description + "', '" + status + "')";
-
-                    }
-                    else
-                    {
-                        status = "Непросмотрено";
-                        command.CommandText = $"Insert into Films(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre6 + "', " + Year + ", '" + Description + "', '" + status + "')";
-                    }
-                }
-                #endregion
-
-
-                DataBase.SqlConnection.Open();
-                command.Connection = DataBase.SqlConnection;
-                int number = command.ExecuteNonQuery();
-                MessageBox.Show(number.ToString() + " фильм добавлен.");
-                DataBase.SqlConnection.Close();
-                var films = new AddNew();
-                films.Close();
             }
-            catch (Exception ex)
+        }
+
+        private bool CheckField()
+        {
+            Regex rTitle = new Regex(@"[А-Яа-я]");
+            Regex rYear = new Regex(@"\d{4}");
+            Regex rDescription = new Regex(@"[А-Яа-я]");
+
+            if (Title == null || Title.Length > 50)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Проверьте название");
+                return false;
             }
+            
+
+            if (!rTitle.IsMatch(Title))
+            {
+                MessageBox.Show("Проверьте название\n");
+                return false;
+            }
+            
+            if (!rYear.IsMatch(Year.ToString()))
+            {
+                MessageBox.Show("Неверно введён год\n");
+                return false;
+            }
+            if (!rDescription.IsMatch(Description))
+            {
+                MessageBox.Show("Описание должно быть на русском языке");
+                return false;
+            }
+            return true;
         }
     }
 }

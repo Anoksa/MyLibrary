@@ -25,7 +25,7 @@
 
         <StackPanel Margin="660,114,341,164">
 
-            
+
 
             <Button Command="{Binding AllCommand}" Width="50" Height="30" Style="{StaticResource MaterialDesignRaisedDarkButton}"   materialDesign:ButtonAssist.CornerRadius="25" >
                 <materialDesign:PackIcon Kind="Movie"/>
@@ -41,7 +41,7 @@
                     <ToolTip>Детектив</ToolTip>
                 </Button.ToolTip>
             </Button>
-            
+
             <Separator Height="1" Margin="10,2,9.667,2"/>
 
             <Button Command="{Binding MelodramaCommand}" Width="50" Height="30" Style="{StaticResource MaterialDesignRaisedDarkButton}"   materialDesign:ButtonAssist.CornerRadius="25" >
@@ -88,7 +88,7 @@
             </Button>
 
             <Separator Height="1" Margin="10,2,9.667,2"/>
-            
+
             <Button Command="{Binding HorrosCommand}" Width="50" Height="30" Style="{StaticResource MaterialDesignRaisedDarkButton}"   materialDesign:ButtonAssist.CornerRadius="25" >
                 <materialDesign:PackIcon Kind="Knife"/>
                 <Button.ToolTip>
@@ -96,7 +96,7 @@
                 </Button.ToolTip>
             </Button>
 
-            
+
         </StackPanel>
 
         <Button Command="{Binding AddCommand}" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Margin="983,472,73.333,52">
@@ -109,7 +109,7 @@
             Удалить
         </Button>
 
-        <TextBlock  Text="{Binding GetDescription, Mode=OneWay}" HorizontalAlignment="Left" Margin="824,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="267" Width="247"/>
+        <TextBlock  Text="{Binding GetDescription, Mode=OneWay}" HorizontalAlignment="Left" Margin="785,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="368" Width="286"/>
 
     </Grid>
 </Page>

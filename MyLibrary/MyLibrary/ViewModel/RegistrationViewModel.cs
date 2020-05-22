@@ -87,6 +87,18 @@ namespace MyLibrary.ViewModel
             Regex regexLogin = new Regex(@"^[A-zА-я\d]+$");
             Regex regexPassword = new Regex(@"^[A-Za-z\d]+$");
 
+            if(Login == null)
+            {
+                MessageBox.Show("Введите логин");
+                return false;
+            }
+            if (Password == null)
+            {
+                MessageBox.Show("Введите пароль");
+                return false;
+            }
+
+
             if (!regexLogin.IsMatch(Login) || Login.Length < 4)
             {
                 MessageBox.Show("Login is not validated");

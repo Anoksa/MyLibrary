@@ -12,9 +12,9 @@ using System.Data.SqlClient;
 
 namespace MyLibrary.ViewModel
 {
-    public class FilmsViewModel : ViewModelBase
+    public class MangaViewModel : ViewModelBase
     {
-        public FilmsViewModel()
+        public MangaViewModel()
         {
             Load();
         }
@@ -34,9 +34,9 @@ namespace MyLibrary.ViewModel
 
         private void SearchDetective()
         {
-            Films.Clear();
+            Manga.Clear();
 
-            string sqlExpression = "SELECT * FROM Films where Genre ='Детектив'";
+            string sqlExpression = "SELECT * FROM Manga where Genre ='Детектив'";
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -52,7 +52,7 @@ namespace MyLibrary.ViewModel
                 {
                     while (reader.Read()) // построчно считываем данные 
                     {
-                        object film_id = reader["Film_id"];
+                        object film_id = reader["Manga_id"];
                         object title = reader["Title"];
                         object genre = reader["Genre"];
                         object year = reader["Year"];
@@ -60,7 +60,7 @@ namespace MyLibrary.ViewModel
                         object status = reader["Status"];
 
 
-                        Films.Add(new Film(Convert.ToInt32(film_id.ToString()), title.ToString(),
+                        Manga.Add(new MangaM(Convert.ToInt32(film_id.ToString()), title.ToString(),
                              genre.ToString(), Convert.ToInt32(year.ToString()), description.ToString(), status.ToString()));
 
                     }
@@ -73,8 +73,8 @@ namespace MyLibrary.ViewModel
 
         private void SearchMelodrama()
         {
-            Films.Clear();
-            string sqlExpression = "SELECT * FROM Films where Genre ='Мелодрама'";
+            Manga.Clear();
+            string sqlExpression = "SELECT * FROM Manga where Genre ='Мелодрама'";
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -90,7 +90,7 @@ namespace MyLibrary.ViewModel
                 {
                     while (reader.Read()) // построчно считываем данные 
                     {
-                        object film_id = reader["Film_id"];
+                        object film_id = reader["Manga_id"];
                         object title = reader["Title"];
                         object genre = reader["Genre"];
                         object year = reader["Year"];
@@ -99,7 +99,7 @@ namespace MyLibrary.ViewModel
 
 
 
-                        Films.Add(new Film(Convert.ToInt32(film_id.ToString()), title.ToString(),
+                        Manga.Add(new MangaM(Convert.ToInt32(film_id.ToString()), title.ToString(),
                             genre.ToString(), Convert.ToInt32(year.ToString()), description.ToString(), status.ToString()));
 
                     }
@@ -111,8 +111,8 @@ namespace MyLibrary.ViewModel
 
         private void SearchFantastic()
         {
-            Films.Clear();
-            string sqlExpression = "SELECT * FROM Films where Genre ='Фантастика'";
+            Manga.Clear();
+            string sqlExpression = "SELECT * FROM Manga where Genre ='Фантастика'";
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -128,7 +128,7 @@ namespace MyLibrary.ViewModel
                 {
                     while (reader.Read()) // построчно считываем данные 
                     {
-                        object film_id = reader["Film_id"];
+                        object film_id = reader["Manga_id"];
                         object title = reader["Title"];
                         object genre = reader["Genre"];
                         object year = reader["Year"];
@@ -137,7 +137,7 @@ namespace MyLibrary.ViewModel
 
 
 
-                        Films.Add(new Film(Convert.ToInt32(film_id.ToString()), title.ToString(),
+                        Manga.Add(new MangaM(Convert.ToInt32(film_id.ToString()), title.ToString(),
                             genre.ToString(), Convert.ToInt32(year.ToString()), description.ToString(), status.ToString()));
 
                     }
@@ -149,8 +149,8 @@ namespace MyLibrary.ViewModel
 
         private void SearchFantasy()
         {
-            Films.Clear();
-            string sqlExpression = "SELECT * FROM Films where Genre ='Фэнтези'";
+            Manga.Clear();
+            string sqlExpression = "SELECT * FROM Manga where Genre ='Фэнтези'";
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -166,7 +166,7 @@ namespace MyLibrary.ViewModel
                 {
                     while (reader.Read()) // построчно считываем данные 
                     {
-                        object film_id = reader["Film_id"];
+                        object film_id = reader["Manga_id"];
                         object title = reader["Title"];
                         object genre = reader["Genre"];
                         object year = reader["Year"];
@@ -175,7 +175,7 @@ namespace MyLibrary.ViewModel
 
 
 
-                        Films.Add(new Film(Convert.ToInt32(film_id.ToString()), title.ToString(),
+                        Manga.Add(new MangaM(Convert.ToInt32(film_id.ToString()), title.ToString(),
                             genre.ToString(), Convert.ToInt32(year.ToString()), description.ToString(), status.ToString()));
 
                     }
@@ -187,8 +187,8 @@ namespace MyLibrary.ViewModel
 
         private void SearchAdventure()
         {
-            Films.Clear();
-            string sqlExpression = "SELECT * FROM Films where Genre ='Приключения'";
+            Manga.Clear();
+            string sqlExpression = "SELECT * FROM Manga where Genre ='Приключения'";
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -204,7 +204,7 @@ namespace MyLibrary.ViewModel
                 {
                     while (reader.Read()) // построчно считываем данные 
                     {
-                        object film_id = reader["Film_id"];
+                        object film_id = reader["Manga_id"];
                         object title = reader["Title"];
                         object genre = reader["Genre"];
                         object year = reader["Year"];
@@ -213,7 +213,7 @@ namespace MyLibrary.ViewModel
 
 
 
-                        Films.Add(new Film(Convert.ToInt32(film_id.ToString()), title.ToString(),
+                        Manga.Add(new MangaM(Convert.ToInt32(film_id.ToString()), title.ToString(),
                             genre.ToString(), Convert.ToInt32(year.ToString()), description.ToString(), status.ToString()));
 
                     }
@@ -225,8 +225,8 @@ namespace MyLibrary.ViewModel
 
         private void SearchComedi()
         {
-            Films.Clear();
-            string sqlExpression = "SELECT * FROM Films where Genre ='Комедия'";
+            Manga.Clear();
+            string sqlExpression = "SELECT * FROM Manga where Genre ='Комедия'";
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -242,7 +242,7 @@ namespace MyLibrary.ViewModel
                 {
                     while (reader.Read()) // построчно считываем данные 
                     {
-                        object film_id = reader["Film_id"];
+                        object film_id = reader["Manga_id"];
                         object title = reader["Title"];
                         object genre = reader["Genre"];
                         object year = reader["Year"];
@@ -250,7 +250,7 @@ namespace MyLibrary.ViewModel
                         object status = reader["Status"];
 
 
-                        Films.Add(new Film(Convert.ToInt32(film_id.ToString()), title.ToString(),
+                        Manga.Add(new MangaM(Convert.ToInt32(film_id.ToString()), title.ToString(),
                              genre.ToString(), Convert.ToInt32(year.ToString()), description.ToString(), status.ToString()));
 
                     }
@@ -262,8 +262,8 @@ namespace MyLibrary.ViewModel
 
         private void SearchAll()
         {
-            Films.Clear();
-            string sqlExpression = "SELECT * FROM Films ";
+            Manga.Clear();
+            string sqlExpression = "SELECT * FROM Manga ";
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -279,7 +279,7 @@ namespace MyLibrary.ViewModel
                 {
                     while (reader.Read()) // построчно считываем данные 
                     {
-                        object film_id = reader["Film_id"];
+                        object film_id = reader["Manga_id"];
                         object title = reader["Title"];
                         object genre = reader["Genre"];
                         object year = reader["Year"];
@@ -288,7 +288,7 @@ namespace MyLibrary.ViewModel
 
 
 
-                        Films.Add(new Film(Convert.ToInt32(film_id.ToString()), title.ToString(),
+                        Manga.Add(new MangaM(Convert.ToInt32(film_id.ToString()), title.ToString(),
                             genre.ToString(), Convert.ToInt32(year.ToString()), description.ToString(), status.ToString()));
 
                     }
@@ -300,8 +300,8 @@ namespace MyLibrary.ViewModel
 
         private void SearchHorrors()
         {
-            Films.Clear();
-            string sqlExpression = "SELECT * FROM Films where Genre ='Ужасы'";
+            Manga.Clear();
+            string sqlExpression = "SELECT * FROM Manga where Genre ='Ужасы'";
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -317,7 +317,7 @@ namespace MyLibrary.ViewModel
                 {
                     while (reader.Read()) // построчно считываем данные 
                     {
-                        object film_id = reader["Film_id"];
+                        object film_id = reader["Manga_id"];
                         object title = reader["Title"];
                         object genre = reader["Genre"];
                         object year = reader["Year"];
@@ -326,7 +326,7 @@ namespace MyLibrary.ViewModel
 
 
 
-                        Films.Add(new Film(Convert.ToInt32(film_id.ToString()), title.ToString(),
+                        Manga.Add(new MangaM(Convert.ToInt32(film_id.ToString()), title.ToString(),
                              genre.ToString(), Convert.ToInt32(year.ToString()), description.ToString(), status.ToString()));
 
                     }
@@ -346,32 +346,32 @@ namespace MyLibrary.ViewModel
         {
             DataBase.SqlConnection.Open();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = $"delete from Films where Film_id =" + selectedFilm.ID;
+            cmd.CommandText = $"delete from Manga where Manga_id =" + selectedManga.ID;
             cmd.Connection = DataBase.SqlConnection;
             cmd.ExecuteNonQuery();
-            Films.Remove(selectedFilm);
+            Manga.Remove(selectedManga);
         }
 
-        private Film selectedFilm;
+        private MangaM selectedManga;
 
-        public Film SelectedFilm
+        public MangaM SelectedManga
         {
-            get => selectedFilm;
+            get => selectedManga;
             set
             {
-                selectedFilm = value;
+                selectedManga = value;
                 OnPropertyChanged("GetDescription");
             }
         }
 
 
 
-        public ObservableCollection<Film> Films { get; set; } = new ObservableCollection<Film>();
+        public ObservableCollection<MangaM> Manga { get; set; } = new ObservableCollection<MangaM>();
 
         private void Load()
         {
 
-            string sqlExpression = "SELECT * FROM Films";
+            string sqlExpression = "SELECT * FROM Manga";
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -387,7 +387,7 @@ namespace MyLibrary.ViewModel
                 {
                     while (reader.Read()) // построчно считываем данные 
                     {
-                        object film_id = reader["Film_id"];
+                        object film_id = reader["Manga_id"];
                         object title = reader["Title"];
                         object genre = reader["Genre"];
                         object year = reader["Year"];
@@ -396,7 +396,7 @@ namespace MyLibrary.ViewModel
 
 
 
-                        Films.Add(new Film(Convert.ToInt32(film_id.ToString()), title.ToString(), 
+                        Manga.Add(new MangaM(Convert.ToInt32(film_id.ToString()), title.ToString(),
                             genre.ToString(), Convert.ToInt32(year.ToString()), description.ToString(), status.ToString()));
 
                     }
@@ -410,8 +410,8 @@ namespace MyLibrary.ViewModel
         {
             get
             {
-                if (selectedFilm != null)
-                    return selectedFilm.Description;
+                if (selectedManga != null)
+                    return selectedManga.Description;
                 return "";
             }
         }

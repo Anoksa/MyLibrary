@@ -58,7 +58,7 @@
             </DockPanel>
         </materialDesign:ColorZone>
 
-        <Grid x:Name="GridBackground" Background="#55313131" Opacity="0" Grid.ColumnSpan="2" Margin="0,0,0,0.333">
+        <Grid x:Name="GridBackground" Background="#55313131" Opacity="0" Margin="-82,0,-0.333,0" Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="67*"/>
                 <RowDefinition Height="526*"/>
@@ -90,46 +90,46 @@
                 <Image Height="140" Source="Resources/Images/Semmi.jpg" Stretch="Fill"/>
                 <ListView Foreground="#FF313131" FontFamily="Champagne &amp; Limousines" FontSize="18">
                     <ListViewItem Height="45" Padding="0">
-                        <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="User" Width="20" Height="20" Foreground="Gray" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Об аккаунте" Margin="10"/>
-                        </StackPanel>
+                        <Button Background="{x:Null}" BorderBrush="{x:Null}" Width="246" Height="45">
+                            <StackPanel Orientation="Horizontal" Width="226">
+                                <materialDesign:PackIcon Kind="User" Width="20" Height="20" Foreground="Gray" Margin="5" VerticalAlignment="Center"/>
+                                <TextBlock Text="Об аккаунте" Margin="10"/>
+                            </StackPanel>
+                        </Button>
                     </ListViewItem>
                     <ListViewItem Height="45" Padding="0">
-                        <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="HelpCircleOutline" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Помощь" Margin="10"/>
-                        </StackPanel>
+                        <Button Background="{x:Null}" BorderBrush="{x:Null}" Width="246" Height="45">
+                            <StackPanel Orientation="Horizontal" Width="226">
+                                <materialDesign:PackIcon Kind="HelpCircleOutline" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                                <TextBlock Text="Помощь" Margin="10"/>
+                            </StackPanel>
+                        </Button>
                     </ListViewItem>
-                    <!--<ListViewItem Height="45" Padding="0">
-                        <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="Lightbulb" Width="20" Height="20" Foreground="Green" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Send Feedback" Margin="10"/>
-                        </StackPanel>
-                    </ListViewItem>-->
+                    
                     <ListViewItem Height="45" Padding="0">
-                        <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="Heart" Width="20" Height="20" Foreground="#FFD41515" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Recommend" Margin="10"/>
-                        </StackPanel>
+                        <Button Background="{x:Null}" BorderBrush="{x:Null}" Width="246" Height="45">
+                            <StackPanel Orientation="Horizontal" Width="226">
+                                <materialDesign:PackIcon Kind="Heart" Width="20" Height="20" Foreground="#FFD41515" Margin="5" VerticalAlignment="Center"/>
+                                <TextBlock Text="Recommend" Margin="10"/>
+                            </StackPanel>
+                        </Button>
                     </ListViewItem>
-                    <!--<ListViewItem Height="45" Padding="0">
-                        <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="StarCircle" Width="20" Height="20" Foreground="#FFE6A701" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Premium Subscription" Margin="10"/>
-                        </StackPanel>
-                    </ListViewItem>-->
+
                     <ListViewItem Height="45" Padding="0">
-                        <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="Settings" Width="20" Height="20" Foreground="#FF0069C1" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Settings" Margin="10"/>
-                        </StackPanel>
+                        <Button Background="{x:Null}" BorderBrush="{x:Null}" Width="246" Height="45">
+                            <StackPanel Orientation="Horizontal" Width="222">
+                                <materialDesign:PackIcon Kind="Settings" Width="20" Height="20" Foreground="#FF0069C1" Margin="5" VerticalAlignment="Center"/>
+                                <TextBlock Text="Settings" Margin="10"/>
+                            </StackPanel>
+                        </Button>
                     </ListViewItem>
                     <ListViewItem Height="45" Padding="0">
-                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <Button x:Name="LogOut" Background="{x:Null}" BorderBrush="{x:Null}" Width="246" Height="45" Click="Exit">
+                        <StackPanel Orientation="Horizontal" Width="226">
                             <materialDesign:PackIcon Kind="ExitToApp" Width="20" Height="20" Foreground="#FF0069C1" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Выход" Margin="10"/>
+                            <TextBlock Text="Выход" Margin="10" Width="131" Height="24"/>
                         </StackPanel>
+                        </Button>
                     </ListViewItem>
 
                 </ListView>
@@ -144,20 +144,23 @@
             <materialDesign:PackIcon Kind="CloseOutline" Width="24" Height="23" Foreground="#FF0069C1" VerticalAlignment="Center" HorizontalAlignment="Left"/>
         </Button>
 
-        <Button Command="{Binding BooksCommand}" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Height="Auto" materialDesign:ButtonAssist.CornerRadius="25 25 0 0"   Margin="506,8,399,565.333">
+        <Button Command="{Binding BooksCommand}" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Height="Auto" materialDesign:ButtonAssist.CornerRadius="25 25 0 0"   Margin="424,8,481,565">
             <TextBlock Text="Книги" />
         </Button>
-        <Button Command="{Binding FilmsCommand}" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Height="Auto" materialDesign:ButtonAssist.CornerRadius="25 25 0 0"    Margin="606,8,294,565.333">
+        <Button Command="{Binding FilmsCommand}" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Height="Auto" materialDesign:ButtonAssist.CornerRadius="25 25 0 0"    Margin="524,8,376,565">
             <TextBlock Text="Фильмы" />
         </Button>
-        <Button Command="{Binding SerialsCommand}"  Style="{StaticResource MaterialDesignRaisedAccentButton}"  Height="Auto" materialDesign:ButtonAssist.CornerRadius="25 25 0 0"    Margin="711,8,189,565.333">
+        <Button Command="{Binding SerialsCommand}"  Style="{StaticResource MaterialDesignRaisedAccentButton}"  Height="Auto" materialDesign:ButtonAssist.CornerRadius="25 25 0 0"    Margin="629,8,271,565">
             <TextBlock Text="Сериалы" />
         </Button>
-        <Button Style="{StaticResource MaterialDesignRaisedAccentButton}"  Height="Auto" materialDesign:ButtonAssist.CornerRadius="25 25 0 0"    Margin="816,8,100,565.333">
+        <Button Command="{Binding MangaCommand}" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Height="Auto" materialDesign:ButtonAssist.CornerRadius="25 25 0 0"    Margin="734,8,182,565">
             <TextBlock Text="Манга" />
         </Button>
-        <Button Style="{StaticResource MaterialDesignRaisedAccentButton}"  Height="Auto" materialDesign:ButtonAssist.CornerRadius="25 25 0 0"    Margin="905,8,10,565.333">
-            <TextBlock Text="Игры" />
+        <Button  Style="{StaticResource MaterialDesignRaisedAccentButton}"  Height="Auto" materialDesign:ButtonAssist.CornerRadius="25 25 0 0"    Margin="850,8,27,565">
+            <StackPanel Orientation="Horizontal" Width="107">
+            <materialDesign:PackIcon Kind="Magnify" Width="25" Height="25"  VerticalAlignment="Center"/>
+                <TextBlock Text="Поиск" VerticalAlignment="Center" Margin="20 10" Width="40" />
+            </StackPanel>
         </Button>
 
     </Grid>

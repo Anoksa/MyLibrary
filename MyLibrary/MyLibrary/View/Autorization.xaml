@@ -29,7 +29,7 @@
         <Label Content="Логин:" HorizontalAlignment="Left" Margin="31,56.667,0,0" Grid.Row="1" VerticalAlignment="Top" Height="23" Width="56"/>
         <Label Content="Пароль:" HorizontalAlignment="Left" Margin="31,100.667,0,0" Grid.Row="1" VerticalAlignment="Top" Height="27" Width="56"/>
 
-        <Button Command="{Binding LoginCommand}" Style="{StaticResource MaterialDesignRaisedDarkButton}" Height="Auto"  materialDesign:ButtonAssist.CornerRadius="25"  Grid.Column="1" Margin="34.667,138.667,88.333,146.333" Grid.Row="1" >
+        <Button Command="{Binding LoginCommand}" Style="{StaticResource MaterialDesignRaisedDarkButton}" Height="Auto"  materialDesign:ButtonAssist.CornerRadius="25"  Grid.Column="1" Margin="34.667,138.667,88.333,146.333" Grid.Row="1" Click="Button_Click" >
             <TextBlock Text="Вход" />
         </Button>
 

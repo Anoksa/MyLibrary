@@ -25,7 +25,8 @@ namespace MyLibrary.ViewModel
 
         public ICommand AddBooksCommand => new RelayCommand(obj => AddNewBookPage());
         public ICommand AddFilmsCommand => new RelayCommand(obj => AddNewFilmPage());
-        public ICommand AddDoramsCommand => new RelayCommand(obj => AddNewDoramaPage());
+        public ICommand AddSerialsCommand => new RelayCommand(obj => AddNewSerialPage());
+        public ICommand AddMangaCommand => new RelayCommand(obj => AddNewMangaPage());
 
         
         public void AddNewBookPage()
@@ -38,9 +39,14 @@ namespace MyLibrary.ViewModel
             CurrentPage = new AddFilmPage();
         }
 
-        public void AddNewDoramaPage()
+        public void AddNewSerialPage()
         {
-           // CurrentPage = new AddDoramaPage();
+           CurrentPage = new AddSerialPage();
+        }
+        
+        public void AddNewMangaPage()
+        {
+            CurrentPage = new AddMangaPage();
         }
 
     }

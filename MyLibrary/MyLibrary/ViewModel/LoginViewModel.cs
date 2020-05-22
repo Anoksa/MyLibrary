@@ -71,8 +71,6 @@ namespace MyLibrary.ViewModel
                 
                 //открытие главного окна
                 var main = new Main();
-                var login = new Autorization();
-                login.Hide();
                 main.Show();
             }
             else

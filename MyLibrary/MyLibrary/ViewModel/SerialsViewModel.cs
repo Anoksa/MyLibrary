@@ -346,7 +346,7 @@ namespace MyLibrary.ViewModel
         {
             DataBase.SqlConnection.Open();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = $"delete from Serials where book_id =" + selectedSerial.ID;
+            cmd.CommandText = $"delete from Serials where Serial_id =" + selectedSerial.ID;
             cmd.Connection = DataBase.SqlConnection;
             cmd.ExecuteNonQuery();
             Serials.Remove(selectedSerial);

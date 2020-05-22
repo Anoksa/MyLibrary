@@ -12,17 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MyLibrary.ViewModel;
 
 namespace MyLibrary.View
 {
     /// <summary>
-    /// Логика взаимодействия для Games.xaml
+    /// Логика взаимодействия для AddMangaPage.xaml
     /// </summary>
-    public partial class Games : Page
+    public partial class AddMangaPage : Page
     {
-        public Games()
+        public AddMangaPage()
         {
             InitializeComponent();
+            var manga = new AddNewMangaViewModel();
+            DataContext = manga;
         }
     }
 }

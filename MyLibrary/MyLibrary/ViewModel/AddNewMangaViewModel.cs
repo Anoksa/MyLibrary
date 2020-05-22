@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 
 namespace MyLibrary.ViewModel
 {
-    public class AddNewSerialViewModel : ViewModelBase
+    public class AddNewMangaViewModel : ViewModelBase
     {
         private string title;
 
@@ -73,9 +73,9 @@ namespace MyLibrary.ViewModel
             }
         }
 
-        public ICommand AddCommand => new RelayCommand(obj => AddSerial());
+        public ICommand AddCommand => new RelayCommand(obj => AddFilm());
 
-        private void AddSerial()
+        private void AddFilm()
         {
             if (CheckField())
             {
@@ -98,98 +98,98 @@ namespace MyLibrary.ViewModel
                     {
                         if (Status)
                         {
-                            status = "Проcмотрено";
-                            command.CommandText = $"Insert into Serials(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre0 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                            status = "Прочитано";
+                            command.CommandText = $"Insert into Manga(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre0 + "', " + Year + ", '" + Description + "', '" + status + "')";
 
                         }
                         else
                         {
-                            status = "Непросмотрено";
-                            command.CommandText = $"Insert into Serials(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre0 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                            status = "Непрочитано";
+                            command.CommandText = $"Insert into Manga(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre0 + "', " + Year + ", '" + Description + "', '" + status + "')";
                         }
                     }
                     else if (Genre == 1)
                     {
                         if (Status)
                         {
-                            status = "Просмотрено";
-                            command.CommandText = $"Insert into Serials(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre1 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                            status = "Прочитано";
+                            command.CommandText = $"Insert into Manga(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre1 + "', " + Year + ", '" + Description + "', '" + status + "')";
 
                         }
                         else
                         {
-                            status = "Непросмотрено";
-                            command.CommandText = $"Insert into Serials(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre1 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                            status = "Непрочитано";
+                            command.CommandText = $"Insert into Manga(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre1 + "', " + Year + ", '" + Description + "', '" + status + "')";
                         }
                     }
                     else if (Genre == 2)
                     {
                         if (Status)
                         {
-                            status = "Просмотрено";
-                            command.CommandText = $"Insert into Serials(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre2 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                            status = "Прочитано";
+                            command.CommandText = $"Insert into Manga(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre2 + "', " + Year + ", '" + Description + "', '" + status + "')";
 
                         }
                         else
                         {
-                            status = "Непросмотрено";
-                            command.CommandText = $"Insert into Serials(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre2 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                            status = "Непрочитано";
+                            command.CommandText = $"Insert into Manga(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre2 + "', " + Year + ", '" + Description + "', '" + status + "')";
                         }
                     }
                     else if (Genre == 3)
                     {
                         if (Status)
                         {
-                            status = "Просмотрено";
-                            command.CommandText = $"Insert into Serials(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre3 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                            status = "Прочитано";
+                            command.CommandText = $"Insert into Manga(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre3 + "', " + Year + ", '" + Description + "', '" + status + "')";
 
                         }
                         else
                         {
-                            status = "Непросмотрено";
-                            command.CommandText = $"Insert into Serials(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre3 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                            status = "Непрочитано";
+                            command.CommandText = $"Insert into Manga(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre3 + "', " + Year + ", '" + Description + "', '" + status + "')";
                         }
                     }
                     else if (Genre == 4)
                     {
                         if (Status)
                         {
-                            status = "Просмотрено";
-                            command.CommandText = $"Insert into Serials(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre4 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                            status = "Прочитано";
+                            command.CommandText = $"Insert into Manga(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre4 + "', " + Year + ", '" + Description + "', '" + status + "')";
 
                         }
                         else
                         {
-                            status = "Непросмотрено";
-                            command.CommandText = $"Insert into Serials(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre4 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                            status = "Непрочитано";
+                            command.CommandText = $"Insert into Manga(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre4 + "', " + Year + ", '" + Description + "', '" + status + "')";
                         }
                     }
                     else if (Genre == 5)
                     {
                         if (Status)
                         {
-                            status = "Просмотрено";
-                            command.CommandText = $"Insert into Serials(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre5 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                            status = "Прочитано";
+                            command.CommandText = $"Insert into Manga(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre5 + "', " + Year + ", '" + Description + "', '" + status + "')";
 
                         }
                         else
                         {
-                            status = "Непросмотрено";
-                            command.CommandText = $"Insert into Serials(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre5 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                            status = "Непрочитано";
+                            command.CommandText = $"Insert into Manga(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre5 + "', " + Year + ", '" + Description + "', '" + status + "')";
                         }
                     }
                     else if (Genre == 6)
                     {
                         if (Status)
                         {
-                            status = "Просмотрено";
-                            command.CommandText = $"Insert into Serials(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre6 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                            status = "Прочитано";
+                            command.CommandText = $"Insert into Manga(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre6 + "', " + Year + ", '" + Description + "', '" + status + "')";
 
                         }
                         else
                         {
-                            status = "Непросмотрено";
-                            command.CommandText = $"Insert into Serials(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre6 + "', " + Year + ", '" + Description + "', '" + status + "')";
+                            status = "Непрочитано";
+                            command.CommandText = $"Insert into Manga(user_id, Title,  Genre, Year, Description, Status) values (" + User.user.ID + ",'" + Title + "', '" + genre6 + "', " + Year + ", '" + Description + "', '" + status + "')";
                         }
                     }
                     #endregion
@@ -198,25 +198,23 @@ namespace MyLibrary.ViewModel
                     DataBase.SqlConnection.Open();
                     command.Connection = DataBase.SqlConnection;
                     int number = command.ExecuteNonQuery();
-
-
-                    MessageBox.Show(number.ToString() + " сериал добавлен.");
+                    MessageBox.Show( "Манга добавлена.");
                     DataBase.SqlConnection.Close();
+                    
+                    
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
                 }
             }
-
-            
         }
 
         private bool CheckField()
         {
 
             Regex rTitle = new Regex(@"[А-Яа-я]");
-            
+           
             Regex rYear = new Regex(@"\d{4}");
             Regex rDescription = new Regex(@"[А-Яа-я]");
 
@@ -225,12 +223,12 @@ namespace MyLibrary.ViewModel
                 MessageBox.Show("Проверьте название");
                 return false;
             }
-            
+           
 
 
             if (!rTitle.IsMatch(Title))
             {
-                MessageBox.Show("Название должно быть на русскому языке\n");
+                MessageBox.Show("Название должно быть на русском\n");
                 return false;
             }
             
