@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Collections.ObjectModel;
 using MyLibrary.Model;
 using System.Data.SqlClient;
+using System.Windows;
 
 namespace MyLibrary.ViewModel
 {
@@ -344,12 +345,17 @@ namespace MyLibrary.ViewModel
 
         private void Delete()
         {
-            DataBase.SqlConnection.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = $"delete from Serials where Serial_id =" + selectedSerial.ID;
-            cmd.Connection = DataBase.SqlConnection;
-            cmd.ExecuteNonQuery();
-            Serials.Remove(selectedSerial);
+            if (selectedSerial != null)
+            {
+                DataBase.SqlConnection.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = $"delete from Serials where Serial_id =" + selectedSerial.ID;
+                cmd.Connection = DataBase.SqlConnection;
+                cmd.ExecuteNonQuery();
+                Serials.Remove(selectedSerial);
+            }
+            else
+                MessageBox.Show("Выберите сериал");
         }
 
         private Serial selectedSerial;
@@ -433,7 +439,7 @@ namespace MyLibrary.ViewModel
         private void Search()
         {
             Serials.Clear();
-            string sqlExpression = "SELECT Serials_id, Title,  Genre, Year, Description, Status FROM Serials Where Title like '" + SearchB + "%'  or Description like '%" + SearchB + "%' or Status like '" + SearchB + "%'";
+            string sqlExpression = "SELECT Serials_id, Title,  Genre, Year, Description, Status FROM Serials Where user_id =" +User.user.ID +" and Title like '%" + SearchB + "%'";
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -466,6 +472,68 @@ namespace MyLibrary.ViewModel
                 reader.Close();
             }
             DataBase.SqlConnection.Close();
+        }
+
+        public ICommand StatusCommand => new RelayCommand(obj => ChangeStatus());
+
+        private void ChangeStatus()
+        {
+
+            if (selectedSerial != null)
+            {
+                DataBase.SqlConnection.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = $"delete from Serials where Serial_id =" + selectedSerial.ID;
+                cmd.Connection = DataBase.SqlConnection;
+                cmd.ExecuteNonQuery();
+                if (selectedSerial.Status == "Просмотрено")
+                {
+                    cmd.CommandText = $"Insert into Serials(user_id, Title, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + SelectedSerial.Title + "', '" + SelectedSerial.Genre + "', " + SelectedSerial.Year + ", '" + SelectedSerial.Description + "', 'Непросмотрено')";
+                }
+                else
+                {
+                    cmd.CommandText = $"Insert into Serials(user_id, Title, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + selectedSerial.Title + "', '" + selectedSerial.Genre + "', " + selectedSerial.Year + ", '" + SelectedSerial.Description + "', 'Просмотрено')";
+                }
+                cmd.ExecuteNonQuery();
+
+                string sqlExpression = "SELECT * FROM Serials where Title='" + selectedSerial.Title + "' and Description='" + selectedSerial.Description + "'";
+
+                if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
+                {
+                    DataBase.SqlConnection.Open();
+                }
+
+                if (DataBase.SqlConnection.State == System.Data.ConnectionState.Open)
+                {
+                    SqlCommand command = new SqlCommand(sqlExpression, DataBase.SqlConnection);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows) // если есть данные 
+                    {
+                        while (reader.Read()) // построчно считываем данные 
+                        {
+                            object film_id = reader["Serial_id"];
+                            object title = reader["Title"];
+                            object genre = reader["Genre"];
+                            object year = reader["Year"];
+                            object description = reader["Description"];
+                            object status = reader["Status"];
+
+
+
+                            Serials.Add(new Serial(Convert.ToInt32(film_id.ToString()), title.ToString(),
+                                genre.ToString(), Convert.ToInt32(year.ToString()), description.ToString(), status.ToString()));
+
+                        }
+                    }
+                    reader.Close();
+                }
+                DataBase.SqlConnection.Close();
+
+                Serials.Remove(selectedSerial);
+            }
+            else
+                MessageBox.Show("Выберите сериал");
         }
     }
 }

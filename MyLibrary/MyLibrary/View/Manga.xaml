@@ -25,8 +25,6 @@
 
         <StackPanel Margin="660,114,341,164">
 
-
-
             <Button Command="{Binding AllCommand}" Width="50" Height="30" Style="{StaticResource MaterialDesignRaisedDarkButton}"   materialDesign:ButtonAssist.CornerRadius="25" >
                 <materialDesign:PackIcon Kind="Bookshelf"/>
                 <Button.ToolTip>
@@ -102,10 +100,16 @@
         <Button Command="{Binding AddCommand}" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Margin="983,472,73.333,52">
             <materialDesign:PackIcon Kind="Add" Height="39" Width="37" />
         </Button>
+        <Button Command="{Binding StatusCommand}"
+            Style="{StaticResource MaterialDesignFlatMidBgButton}"
+            ToolTip="MaterialDesignFlatMidButton" Height="Auto" Margin="641,443,320,106">
+            Изменить статус
+        </Button>
+
         <Button Command="{Binding DeleteCommand}"
     Style="{StaticResource MaterialDesignRaisedButton}"
     Width="100"
-    ToolTip="Resource name: MaterialDesignRaisedButton" Margin="660,472,352,76">
+    ToolTip="Resource name: MaterialDesignRaisedButton" Margin="665,490,347,57" Height="Auto">
             Удалить
         </Button>
 

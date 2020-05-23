@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Collections.ObjectModel;
 using MyLibrary.Model;
 using System.Data.SqlClient;
+using System.Windows;
 
 namespace MyLibrary.ViewModel
 {
@@ -354,12 +355,17 @@ namespace MyLibrary.ViewModel
 
         private void Delete()
         {
-            DataBase.SqlConnection.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = $"delete from Books where book_id =" + selectedBook.ID;
-            cmd.Connection = DataBase.SqlConnection;
-            cmd.ExecuteNonQuery();
-            Books.Remove(selectedBook);
+            if (selectedBook != null)
+            {
+                DataBase.SqlConnection.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = $"delete from Books where book_id =" + selectedBook.ID;
+                cmd.Connection = DataBase.SqlConnection;
+                cmd.ExecuteNonQuery();
+                Books.Remove(selectedBook);
+            }
+            else
+                MessageBox.Show("Выберите книгу");
         }
 
         private Book selectedBook;
@@ -381,7 +387,7 @@ namespace MyLibrary.ViewModel
         private  void Load()
         {
            
-            string sqlExpression = "SELECT * FROM Books";
+            string sqlExpression = "SELECT * FROM Books where user_id="+User.user.ID;
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -444,7 +450,7 @@ namespace MyLibrary.ViewModel
         private void Search()
         {
             Books.Clear();
-            string sqlExpression = "SELECT Book_id, Title, Author, Genre, Year, Description, Status FROM Books Where Title like '"+SearchB + "%' or Author like '" + SearchB +"%' or Description like '"+ SearchB +"%' or Status like '"+SearchB+"%'";
+            string sqlExpression = "SELECT Book_id, Title, Author, Genre, Year, Description, Status FROM Books Where user_id = " + User.user.ID +" and Title like '%"+SearchB + "%'";
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -478,6 +484,66 @@ namespace MyLibrary.ViewModel
                 reader.Close();
             }
             DataBase.SqlConnection.Close();
+        }
+
+
+        public ICommand StatusCommand => new RelayCommand(obj => ChangeStatus());
+
+        private void ChangeStatus()
+        {
+            if (selectedBook != null)
+            {
+                DataBase.SqlConnection.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = $"delete from Books where book_id =" + selectedBook.ID;
+                cmd.Connection = DataBase.SqlConnection;
+                cmd.ExecuteNonQuery();
+                if (selectedBook.Status == "Прочитано")
+                {
+                    cmd.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + selectedBook.Title + "','" + selectedBook.Author + "', '" + selectedBook.Genre + "', " + selectedBook.Year + ", '" + SelectedBook.Description + "', 'Непрочитано')";
+                }
+                else
+                {
+                    cmd.CommandText = $"Insert into Books(user_id, Title, Author, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + selectedBook.Title + "','" + selectedBook.Author + "', '" + selectedBook.Genre + "', " + selectedBook.Year + ", '" + SelectedBook.Description + "', 'Прочитано')";
+                }
+                cmd.ExecuteNonQuery();
+
+                string sqlExpression = "SELECT * FROM Books where Title='" + selectedBook.Title + "' and Description='" + selectedBook.Description + "'";
+
+                if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
+                {
+                    DataBase.SqlConnection.Open();
+                }
+
+                if (DataBase.SqlConnection.State == System.Data.ConnectionState.Open)
+                {
+                    SqlCommand command = new SqlCommand(sqlExpression, DataBase.SqlConnection);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows) // если есть данные 
+                    {
+                        while (reader.Read()) // построчно считываем данные 
+                        {
+                            object book_id = reader["Book_id"];
+                            object title = reader["Title"];
+                            object author = reader["Author"];
+                            object genre = reader["Genre"];
+                            object year = reader["Year"];
+                            object description = reader["Description"];
+                            object status = reader["Status"];
+
+                            Books.Add(new Book(Convert.ToInt32(book_id.ToString()), title.ToString(), author.ToString(),
+                                genre.ToString(), Convert.ToInt32(year.ToString()), description.ToString(), status.ToString()));
+                        }
+                    }
+                    reader.Close();
+                }
+                DataBase.SqlConnection.Close();
+
+                Books.Remove(selectedBook);
+            }
+            else
+                MessageBox.Show("Выберите книгу");
         }
     }
 }

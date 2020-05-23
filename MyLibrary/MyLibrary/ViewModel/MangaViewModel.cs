@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Collections.ObjectModel;
 using MyLibrary.Model;
 using System.Data.SqlClient;
+using System.Windows;
 
 namespace MyLibrary.ViewModel
 {
@@ -36,7 +37,7 @@ namespace MyLibrary.ViewModel
         {
             Manga.Clear();
 
-            string sqlExpression = "SELECT * FROM Manga where Genre ='Детектив'";
+            string sqlExpression = "SELECT * FROM Manga where Genre ='Детектив' and user_id =" + User.user.ID;
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -74,7 +75,7 @@ namespace MyLibrary.ViewModel
         private void SearchMelodrama()
         {
             Manga.Clear();
-            string sqlExpression = "SELECT * FROM Manga where Genre ='Мелодрама'";
+            string sqlExpression = "SELECT * FROM Manga where Genre ='Мелодрама' and user_id =" + User.user.ID;
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -112,7 +113,7 @@ namespace MyLibrary.ViewModel
         private void SearchFantastic()
         {
             Manga.Clear();
-            string sqlExpression = "SELECT * FROM Manga where Genre ='Фантастика'";
+            string sqlExpression = "SELECT * FROM Manga where Genre ='Фантастика' and user_id =" + User.user.ID;
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -150,7 +151,7 @@ namespace MyLibrary.ViewModel
         private void SearchFantasy()
         {
             Manga.Clear();
-            string sqlExpression = "SELECT * FROM Manga where Genre ='Фэнтези'";
+            string sqlExpression = "SELECT * FROM Manga where Genre ='Фэнтези' and user_id =" + User.user.ID;
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -188,7 +189,7 @@ namespace MyLibrary.ViewModel
         private void SearchAdventure()
         {
             Manga.Clear();
-            string sqlExpression = "SELECT * FROM Manga where Genre ='Приключения'";
+            string sqlExpression = "SELECT * FROM Manga where Genre ='Приключения' and user_id =" + User.user.ID;
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -226,7 +227,7 @@ namespace MyLibrary.ViewModel
         private void SearchComedi()
         {
             Manga.Clear();
-            string sqlExpression = "SELECT * FROM Manga where Genre ='Комедия'";
+            string sqlExpression = "SELECT * FROM Manga where Genre ='Комедия' and user_id =" + User.user.ID;
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -263,7 +264,7 @@ namespace MyLibrary.ViewModel
         private void SearchAll()
         {
             Manga.Clear();
-            string sqlExpression = "SELECT * FROM Manga ";
+            string sqlExpression = "SELECT * FROM Manga  where user_id =" + User.user.ID;
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -301,7 +302,7 @@ namespace MyLibrary.ViewModel
         private void SearchHorrors()
         {
             Manga.Clear();
-            string sqlExpression = "SELECT * FROM Manga where Genre ='Ужасы'";
+            string sqlExpression = "SELECT * FROM Manga where Genre ='Ужасы' and user_id =" + User.user.ID;
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -344,12 +345,17 @@ namespace MyLibrary.ViewModel
 
         private void Delete()
         {
-            DataBase.SqlConnection.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = $"delete from Manga where Manga_id =" + selectedManga.ID;
-            cmd.Connection = DataBase.SqlConnection;
-            cmd.ExecuteNonQuery();
-            Manga.Remove(selectedManga);
+            if (selectedManga != null)
+            {
+                DataBase.SqlConnection.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = $"delete from Manga where Manga_id =" + selectedManga.ID;
+                cmd.Connection = DataBase.SqlConnection;
+                cmd.ExecuteNonQuery();
+                Manga.Remove(selectedManga);
+            }
+            else
+                MessageBox.Show("Выберите мангу");
         }
 
         private MangaM selectedManga;
@@ -371,7 +377,7 @@ namespace MyLibrary.ViewModel
         private void Load()
         {
 
-            string sqlExpression = "SELECT * FROM Manga";
+            string sqlExpression = "SELECT * FROM Manga where user_id="+User.user.ID;
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -433,7 +439,7 @@ namespace MyLibrary.ViewModel
         private void Search()
         {
             Manga.Clear();
-            string sqlExpression = "SELECT Manga_id, Title,  Genre, Year, Description, Status FROM Manga Where Title like '" + SearchB + "%'  or Description like '%" + SearchB + "%' or Status like '" + SearchB + "%'";
+            string sqlExpression = "SELECT Manga_id, Title,  Genre, Year, Description, Status FROM Manga Where   user_id =" + User.user.ID+ " and Title like '%" + SearchB + "%'";
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -465,6 +471,68 @@ namespace MyLibrary.ViewModel
                 reader.Close();
             }
             DataBase.SqlConnection.Close();
+        }
+
+        public ICommand StatusCommand => new RelayCommand(obj => ChangeStatus());
+
+        private void ChangeStatus()
+        {
+
+            if (selectedManga != null)
+            {
+                DataBase.SqlConnection.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = $"delete from Manga where Manga_id =" + selectedManga.ID;
+                cmd.Connection = DataBase.SqlConnection;
+                cmd.ExecuteNonQuery();
+                if (selectedManga.Status == "Прочитано")
+                {
+                    cmd.CommandText = $"Insert into Manga(user_id, Title, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + SelectedManga.Title + "', '" + SelectedManga.Genre + "', " + SelectedManga.Year + ", '" + SelectedManga.Description + "', 'Непрочитано')";
+                }
+                else
+                {
+                    cmd.CommandText = $"Insert into Manga(user_id, Title, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + selectedManga.Title + "', '" + selectedManga.Genre + "', " + selectedManga.Year + ", '" + SelectedManga.Description + "', 'Прочитано')";
+                }
+                cmd.ExecuteNonQuery();
+
+                string sqlExpression = "SELECT * FROM Manga where Title='" + selectedManga.Title + "' and Description='" + selectedManga.Description + "'";
+
+                if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
+                {
+                    DataBase.SqlConnection.Open();
+                }
+
+                if (DataBase.SqlConnection.State == System.Data.ConnectionState.Open)
+                {
+                    SqlCommand command = new SqlCommand(sqlExpression, DataBase.SqlConnection);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows) // если есть данные 
+                    {
+                        while (reader.Read()) // построчно считываем данные 
+                        {
+                            object film_id = reader["Manga_id"];
+                            object title = reader["Title"];
+                            object genre = reader["Genre"];
+                            object year = reader["Year"];
+                            object description = reader["Description"];
+                            object status = reader["Status"];
+
+
+
+                            Manga.Add(new MangaM(Convert.ToInt32(film_id.ToString()), title.ToString(),
+                                genre.ToString(), Convert.ToInt32(year.ToString()), description.ToString(), status.ToString()));
+
+                        }
+                    }
+                    reader.Close();
+                }
+                DataBase.SqlConnection.Close();
+
+                Manga.Remove(selectedManga);
+            }
+            else
+                MessageBox.Show("Выберите мангу");
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Collections.ObjectModel;
 using MyLibrary.Model;
 using System.Data.SqlClient;
+using System.Windows;
 
 namespace MyLibrary.ViewModel
 {
@@ -344,12 +345,17 @@ namespace MyLibrary.ViewModel
 
         private void Delete()
         {
-            DataBase.SqlConnection.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = $"delete from Films where Film_id =" + selectedFilm.ID;
-            cmd.Connection = DataBase.SqlConnection;
-            cmd.ExecuteNonQuery();
-            Films.Remove(selectedFilm);
+            if (selectedFilm != null)
+            { 
+                DataBase.SqlConnection.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = $"delete from Films where Film_id =" + selectedFilm.ID;
+                cmd.Connection = DataBase.SqlConnection;
+                cmd.ExecuteNonQuery();
+                Films.Remove(selectedFilm);
+            }
+            else
+                MessageBox.Show("Выберите фильм");
         }
 
         private Film selectedFilm;
@@ -371,7 +377,7 @@ namespace MyLibrary.ViewModel
         private void Load()
         {
 
-            string sqlExpression = "SELECT * FROM Films";
+            string sqlExpression = "SELECT * FROM Films where user_id =" + User.user.ID;
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -433,7 +439,7 @@ namespace MyLibrary.ViewModel
         private void Search()
         {
             Films.Clear();
-            string sqlExpression = "SELECT Film_id, Title, Genre, Year, Description, Status FROM Films Where Title like '" + SearchB + "%' or Description like '%" + SearchB + "%' or Status like '" + SearchB + "%'";
+            string sqlExpression = "SELECT Film_id, Title, Genre, Year, Description, Status FROM Films Where user_id ="+User.user.ID +" and Title like '%" + SearchB + "%'";
 
             if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
             {
@@ -466,6 +472,68 @@ namespace MyLibrary.ViewModel
                 reader.Close();
             }
             DataBase.SqlConnection.Close();
+        }
+
+        public ICommand StatusCommand => new RelayCommand(obj => ChangeStatus());
+
+        private void ChangeStatus()
+        {
+            if (selectedFilm != null)
+            {
+
+                DataBase.SqlConnection.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = $"delete from Films where Film_id =" + selectedFilm.ID;
+                cmd.Connection = DataBase.SqlConnection;
+                cmd.ExecuteNonQuery();
+                if (selectedFilm.Status == "Просмотрено")
+                {
+                    cmd.CommandText = $"Insert into Films(user_id, Title, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + SelectedFilm.Title + "', '" + SelectedFilm.Genre + "', " + SelectedFilm.Year + ", '" + SelectedFilm.Description + "', 'Непросмотрено')";
+                }
+                else
+                {
+                    cmd.CommandText = $"Insert into Films(user_id, Title, Genre, Year, Description, Status) values (" + User.user.ID + ",'" + selectedFilm.Title + "', '" + selectedFilm.Genre + "', " + selectedFilm.Year + ", '" + SelectedFilm.Description + "', 'Просмотрено')";
+                }
+                cmd.ExecuteNonQuery();
+
+                string sqlExpression = "SELECT * FROM Films where Title='" + selectedFilm.Title + "' and Description='" + selectedFilm.Description + "'";
+
+                if (DataBase.SqlConnection.State != System.Data.ConnectionState.Open)
+                {
+                    DataBase.SqlConnection.Open();
+                }
+
+                if (DataBase.SqlConnection.State == System.Data.ConnectionState.Open)
+                {
+                    SqlCommand command = new SqlCommand(sqlExpression, DataBase.SqlConnection);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows) // если есть данные 
+                    {
+                        while (reader.Read()) // построчно считываем данные 
+                        {
+                            object film_id = reader["Film_id"];
+                            object title = reader["Title"];
+                            object genre = reader["Genre"];
+                            object year = reader["Year"];
+                            object description = reader["Description"];
+                            object status = reader["Status"];
+
+
+
+                            Films.Add(new Film(Convert.ToInt32(film_id.ToString()), title.ToString(),
+                                genre.ToString(), Convert.ToInt32(year.ToString()), description.ToString(), status.ToString()));
+
+                        }
+                    }
+                    reader.Close();
+                }
+                DataBase.SqlConnection.Close();
+
+                Films.Remove(selectedFilm);
+            }
+            else
+                MessageBox.Show("Выберите фильм");
         }
     }
 }
