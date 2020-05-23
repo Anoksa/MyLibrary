@@ -6,15 +6,24 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:MyLibrary.View"
       mc:Ignorable="d" 
-      Height="450" Width="638"
+      Height="450" Width="700"
       Title="UserInfoPage" Background="White">
 
     <Grid>
-        <Label Content="Логин пользователя:" HorizontalAlignment="Left" Margin="122,29,0,0" VerticalAlignment="Top" Width="124"/>
-        <Label Content="{Binding Path=Login}" HorizontalAlignment="Left" Margin="285,28,0,0" VerticalAlignment="Top" Width="127" Height="25"/>
-        
-        <Label Content="Имя пользователя:" HorizontalAlignment="Left" Margin="122,76,0,0" VerticalAlignment="Top" Width="124"/>
-        <Label Content="{Binding Path=UserName}" HorizontalAlignment="Left" Margin="285,75,0,0" VerticalAlignment="Top" Width="127" Height="25"/>
+        <Label Content="Логин пользователя:" HorizontalAlignment="Left" Margin="188,55,0,0" VerticalAlignment="Top" Width="124"/>
+        <Label Content="{Binding Path=Login}" HorizontalAlignment="Left" Margin="351,54,0,0" VerticalAlignment="Top" Width="127" Height="25"/>
 
+        <Label Content="Имя пользователя:" HorizontalAlignment="Left" Margin="188,102,0,0" VerticalAlignment="Top" Width="124"/>
+        <Label Content="{Binding Path=Username}" HorizontalAlignment="Left" Margin="351,101,0,0" VerticalAlignment="Top" Width="127" Height="25"/>
+        
+        <Label Content="Статистика профиля:" HorizontalAlignment="Left" Margin="188,197,0,0" VerticalAlignment="Top" Width="124"/>
+        <materialDesign:PackIcon Kind="Book" Margin="188,249,0,0" Height="35" Width="37"/>
+        <materialDesign:PackIcon Kind="MovieRoll" Margin="275,249,0,0" Height="35" Width="37"/>
+        <materialDesign:PackIcon Kind="FilmOpen" Margin="382,249,0,0" Height="35" Width="37"/>
+        <materialDesign:PackIcon Kind="Bookshelf" Margin="500,249,0,0" Height="35" Width="37"/>
+        <Label Content="{Binding Path=KolBooks}"  HorizontalAlignment="Left" Margin="194,286,0,0" VerticalAlignment="Top" Height="26" Width="26"/>
+        <Label Content="{Binding Path=KolFilms}" HorizontalAlignment="Left" Margin="281,286,0,0" VerticalAlignment="Top" Height="26" Width="26"/>
+        <Label Content="{Binding Path=KolSerials}" HorizontalAlignment="Left" Margin="388,285,0,0" VerticalAlignment="Top" Height="26" Width="26"/>
+        <Label Content="{Binding Path=KolManga}" HorizontalAlignment="Left" Margin="504,285,0,0" VerticalAlignment="Top" Height="26" Width="26"/>
     </Grid>
 </Page>

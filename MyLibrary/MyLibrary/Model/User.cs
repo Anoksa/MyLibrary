@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,5 +27,14 @@ namespace MyLibrary.Model
         }
 
         public static User user = new User();
+
+        public void GetBooks()
+        {
+            DataBase.SqlConnection.Open();
+            SqlCommand sql = new SqlCommand();
+            sql.CommandText = "Select Count( *) from Books where user_id = " + user.ID;
+            sql.Connection = DataBase.SqlConnection;
+            int number = sql.ExecuteNonQuery();
+        }
     }
 }

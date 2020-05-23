@@ -45,3 +45,7 @@ C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05
 C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\AddMangaPage.baml
 C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\UseInfoPage.g.cs
 C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\obj\Debug\View\UseInfoPage.baml
+C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\bin\Debug\System.Windows.Interactivity.dll
+C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\bin\Debug\Microsoft.Expression.Interactions.xml
+C:\универ\2 курс\2 сем\курсовой\Новая папка\16.05\MyLibrary\MyLibrary\bin\Debug\System.Windows.Interactivity.xml
